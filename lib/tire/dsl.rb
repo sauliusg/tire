@@ -19,7 +19,7 @@ module Tire
           else raise ArgumentError, "Please pass a Ruby Hash or String with JSON"
         end
 
-        Search::Search.new(indices, :payload => payload)
+        Search::Search.new(indices, options.merge(:payload => payload))
       end
     rescue Exception => error
       STDERR.puts "[REQUEST FAILED] #{error.class} #{error.message rescue nil}\n"
